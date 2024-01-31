@@ -4,34 +4,29 @@ export const Title = styled.div``;
 export const Slider = styled.div`
   position: relative;
 `;
-export const SliderLeft = styled.span`
-  background-clip: content-box;
-  padding: 20px 0;
-  box-sizing: border-box;
-  transform: 400ms all ease-in-out;
-  cursor: pointer;
-  width: 80px;
-  z-index: 1000;
+export const Arrow = styled.div`
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
   display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  transition: 400ms all ease-in-out;
-
-  &:hover {
-    background: rgba(20, 20, 20, 0.5);
-    transition: 400ms all ease-in-out;
-  }
+`;
+export const SliderLeft = styled.img`
+  height: 30px;
+  width: 30px;
+  fill: #b7b7b7;
+`;
+export const SliderRight = styled.img`
+  height: 30px;
+  width: 30px;
+  fill: #b7b7b7;
 `;
 export const RowPoster = styled.div`
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 20px 0 20px 20px;
+  padding: 20px 0;
   scroll-behavior: smooth;
 
   img {
@@ -45,28 +40,5 @@ export const RowPoster = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
-  }
-`;
-export const SliderRight = styled.span`
-  background-clip: content-box;
-  padding: 20px 0;
-  box-sizing: border-box;
-  transform: 400ms all ease-in-out;
-  cursor: pointer;
-  width: 80px;
-  z-index: 1000;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  transition: 400ms all ease-in-out;
-
-  &:hover {
-    background: rgba(20, 20, 20, 0.5);
-    transition: 400ms all ease-in-out;
   }
 `;

@@ -1,6 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "../../api/axios";
-import { Title, SliderLeft, RowPoster, SliderRight, Slider } from "./Row.style";
+import {
+  Title,
+  SliderLeft,
+  SliderRight,
+  RowPoster,
+  Slider,
+  Arrow,
+} from "./Row.style";
 
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
@@ -19,7 +26,20 @@ const Row = ({ title, id, fetchUrl }) => {
     <>
       <Title>{title}</Title>
       <Slider>
-        <SliderLeft>{"<"}</SliderLeft>
+        <Arrow>
+          <SliderLeft
+            src="/images/chevron-left-solid.svg"
+            onClick={() => {
+              document.getElementById(id).scrollLeft -= window.innerWidth - 80;
+            }}
+          />
+          <SliderRight
+            src="/images/chevron-right-solid.svg"
+            onClick={() => {
+              document.getElementById(id).scrollLeft -= window.innerWidth - 80;
+            }}
+          />
+        </Arrow>
         <RowPoster id={id}>
           {movies.map((movie) => (
             <img
@@ -28,7 +48,6 @@ const Row = ({ title, id, fetchUrl }) => {
             />
           ))}
         </RowPoster>
-        <SliderRight>{">"}</SliderRight>
       </Slider>
     </>
   );
