@@ -9,6 +9,7 @@ export const Header = styled.div`
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  margin-top: 1rem;
 
   @media (min-width: 1500px) {
     height: 600px;
@@ -29,11 +30,6 @@ export const Header = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-  }
-
-  &:hover:before {
-    border: 4px solid #fff;
-    transition: 0.3s; /* border-color에 대한 0.2초 동안의 트랜지션 설정 */
   }
 `;
 
