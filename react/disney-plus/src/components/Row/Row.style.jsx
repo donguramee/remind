@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Title = styled.div``;
+export const Title = styled.h2``;
 export const Slider = styled.div`
   position: relative;
 `;
@@ -12,15 +12,69 @@ export const Arrow = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const SliderLeft = styled.img`
-  height: 30px;
-  width: 30px;
-  fill: #b7b7b7;
+export const SliderLeft = styled.div`
+  position: relative;
+  height: 144px;
+  width: 50px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/chevron-left-solid.svg") no-repeat center/cover;
+    background-size: 30%;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scale(1.1);
+  }
+
+  &:hover {
+    border-radius: 4px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.542454481792717) 0%,
+      rgba(113, 113, 113, 0.010241596638655426) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
 `;
-export const SliderRight = styled.img`
-  height: 30px;
-  width: 30px;
-  fill: #b7b7b7;
+export const SliderRight = styled.div`
+  position: relative;
+  height: 144px;
+  width: 50px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/chevron-right-solid.svg") no-repeat center/cover;
+    background-size: 30%;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scale(1.1);
+  }
+
+  &:hover {
+    border-radius: 4px;
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.542454481792717) 0%,
+      rgba(113, 113, 113, 0.010241596638655426) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
 `;
 export const RowPoster = styled.div`
   display: flex;

@@ -9,7 +9,6 @@ export const Header = styled.div`
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  margin-top: 1rem;
 
   @media (min-width: 1500px) {
     height: 600px;
