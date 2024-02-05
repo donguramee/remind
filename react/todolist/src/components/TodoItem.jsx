@@ -1,7 +1,14 @@
 import React from "react";
+import { ItemBox, CheckBox, Delete, Item } from "./TodoItem.style";
 
 const TodoItem = (props) => {
-  return <div className="todo-item">{props.item}</div>;
+  return (
+    <ItemBox>
+      <CheckBox type="checkbox" />
+      <Item>{props.item}</Item>
+      <Delete />
+    </ItemBox>
+  );
 };
 
 export default TodoItem;
