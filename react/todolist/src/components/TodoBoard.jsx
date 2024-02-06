@@ -1,8 +1,13 @@
 import React from "react";
-import { Container, DateLabel } from "./TodoBoard.style"; // 가정: 스타일 컴포넌트에서 DateLabel을 사용
+import { Container, DateLabel } from "./TodoBoard.style";
 import TodoItem from "./TodoItem";
 
 const TodoBoard = (props) => {
+  const handleDelete = (itemId) => {
+    const updatedTodoList = props.todoList.filter((item) => item.id !== itemId);
+    props.onDelete(updatedTodoList);
+  };
+
   const getFormattedDate = () => {
     const today = new Date();
     const year = today.getFullYear();
@@ -17,8 +22,8 @@ const TodoBoard = (props) => {
         <Container>
           <DateLabel>Date: {getFormattedDate()}</DateLabel>
 
-          {props.todoList.map((item, index) => (
-            <TodoItem key={index} item={item} />
+          {props.todoList.map((item) => (
+            <TodoItem key={item.id} item={item} onDelete={props.onDelete} />
           ))}
         </Container>
       )}

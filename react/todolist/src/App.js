@@ -6,12 +6,18 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState([]);
   const [enterPressed, setEnterPressed] = useState(false);
+  const [nextId, setNextId] = useState(1); // 새로운 아이템을 추가할 때 사용할 ID
 
   const addItem = () => {
     if (!inputValue.trim()) {
-      alert("오늘 할일이 뭘까요 ?");
+      alert("할 일을 입력하세요.");
     } else {
-      setTodoList([...todoList, inputValue]);
+      const newItem = {
+        id: new Date().getTime(), // 간단하게 현재 시간을 이용한 id 생성
+        text: inputValue,
+      };
+
+      setTodoList([...todoList, newItem]);
       setInputValue("");
     }
   };
@@ -33,6 +39,11 @@ function App() {
     addItem();
   };
 
+  const handleDelete = (itemId) => {
+    const updatedTodoList = todoList.filter((item) => item.id !== itemId);
+    setTodoList(updatedTodoList);
+  };
+
   return (
     <main className="main">
       <h1>Todo List</h1>
@@ -49,7 +60,7 @@ function App() {
           추가
         </button>
       </label>
-      <TodoBoard todoList={todoList} />
+      <TodoBoard todoList={todoList} onDelete={handleDelete} />
     </main>
   );
 }

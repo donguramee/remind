@@ -51,10 +51,13 @@ export const Delete = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
-  background-image: url("../images/delete_FILL0_wght400_GRAD0_opsz24.svg");
-  background-size: cover; // 이미지 크기 조절
-  width: 24px; // 버튼 너비
-  height: 24px; // 버튼 높이
+  background: none;
+  outline: none;
+  border: none;
+  background-image: url("/images/delete.svg");
+  background-size: cover;
+  width: 26px;
+  height: 26px;
 
   &:focus {
     outline: none;

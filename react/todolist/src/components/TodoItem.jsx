@@ -8,11 +8,15 @@ const TodoItem = (props) => {
     setIsChecked(!isChecked);
   };
 
+  const handleDelete = () => {
+    props.onDelete(props.item.id);
+  };
+
   return (
     <ItemBox isChecked={isChecked}>
       <CheckBox type="checkbox" onChange={handleCheckboxChange} />
-      <Item isChecked={isChecked}>{props.item}</Item>
-      <Delete />
+      <Item isChecked={isChecked}>{props.item.text}</Item>
+      <Delete onClick={handleDelete} />
     </ItemBox>
   );
 };
