@@ -67,7 +67,7 @@ h1 {
 .main-input::placeholder {
   color: rgb(181, 181, 181); /* 원하는 색상으로 변경하세요. */
 }
-button {
+.button {
   background-color: rgb(238, 139, 90);
   height: 100%;
   width: 100px;

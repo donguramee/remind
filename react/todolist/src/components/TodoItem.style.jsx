@@ -11,7 +11,8 @@ export const ItemBox = styled.div`
   box-sizing: border-box;
   border: none;
   border-radius: 20px;
-  background-color: #ededed;
+  background-color: ${(props) => (props.isChecked ? "#bdbdbd" : "#ededed")};
+  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
 `;
 
 export const CheckBox = styled.input.attrs({ type: "checkbox" })`
@@ -23,6 +24,11 @@ export const CheckBox = styled.input.attrs({ type: "checkbox" })`
   outline: none;
   cursor: pointer;
   position: relative;
+
+  &:checked {
+    background-color: rgb(238, 139, 90);
+    border-color: rgb(238, 139, 90);
+  }
 
   &:checked::before {
     content: "✔";
@@ -36,8 +42,21 @@ export const CheckBox = styled.input.attrs({ type: "checkbox" })`
 `;
 export const Item = styled.span`
   font-family: TheJamsil3Regular;
+  font-size: 15px;
+  color: ${(props) => (props.isChecked ? "#f0f0f0" : "#585858")};
+  text-decoration: ${(props) => (props.isChecked ? "line-through" : "none")};
+  transition: color 0.3s ease-in-out, text-decoration 0.2s ease-in-out;
 `;
-export const Delete = styled.div`
-  width: 50px;
-  height: 50px;
+export const Delete = styled.button`
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-image: url("../images/delete_FILL0_wght400_GRAD0_opsz24.svg");
+  background-size: cover; // 이미지 크기 조절
+  width: 24px; // 버튼 너비
+  height: 24px; // 버튼 높이
+
+  &:focus {
+    outline: none;
+  }
 `;
