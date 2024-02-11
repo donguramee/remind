@@ -1,17 +1,12 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "../../api/axios";
-import {
-  Title,
-  SliderLeft,
-  SliderRight,
-  RowPoster,
-  Slider,
-  Arrow,
-} from "./Row.style";
+import MovieModal from "../MovieModal/MovieModal";
+import { Title, SliderLeft, SliderRight, RowPoster, Slider } from "./Row.style";
 
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [movieSelected, setMovieSelected] = useState({});
 
   const fetchMovieData = useCallback(async () => {
     const response = await axios.get(fetchUrl);
@@ -23,30 +18,40 @@ const Row = ({ title, id, fetchUrl }) => {
     fetchMovieData();
   }, [fetchMovieData]);
 
-  const handleSlideLeft = () => {
-    const scrollContainer = document.getElementById("your-container-id");
+  //슬라이더 기능
+  const arrowSlider = (direction) => {
+    const scrollContainer = document.getElementById(id);
     if (scrollContainer) {
-      scrollContainer.scrollLeft -= window.innerWidth - 80;
-      setScrollPosition(scrollContainer.scrollLeft);
+      scrollContainer.scrollLeft += direction === "left" ? -800 : 800;
     }
   };
+
+  const handleClick = (movie) => {
+    console.log("Image clicked!", movie);
+
+    setModalOpen(true);
+    setMovieSelected(movie);
+  };
+
   return (
     <>
       <Title>{title}</Title>
       <Slider>
-        <Arrow>
-          <SliderLeft onClick={handleSlideLeft} />
-          <SliderRight onClick={handleSlideLeft} />
-        </Arrow>
+        <SliderLeft onClick={() => arrowSlider("left")} />
         <RowPoster id={id}>
           {movies.map((movie) => (
             <img
               key={movie.id}
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              onClick={() => handleClick(movie)}
             />
           ))}
         </RowPoster>
+        <SliderRight onClick={() => arrowSlider("right")} />
       </Slider>
+      {modalOpen && (
+        <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+      )}
     </>
   );
 };

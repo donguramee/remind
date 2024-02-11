@@ -3,20 +3,24 @@ import styled from "styled-components";
 export const Title = styled.h2``;
 export const Slider = styled.div`
   position: relative;
-`;
-export const Arrow = styled.div`
-  position: absolute;
   display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
 `;
+// export const Arrow = styled.div`
+//   position: absolute;
+//   display: flex;
+//   width: 100%;
+//   height: 100%;
+//   justify-content: space-between;
+//   align-items: center;
+// `;
 export const SliderLeft = styled.div`
-  position: relative;
+  position: absolute;
   height: 144px;
   width: 50px;
   overflow: hidden;
+  left: 0;
 
   &::before {
     content: "";
@@ -45,10 +49,11 @@ export const SliderLeft = styled.div`
   }
 `;
 export const SliderRight = styled.div`
-  position: relative;
+  position: absolute;
   height: 144px;
   width: 50px;
   overflow: hidden;
+  right: 0;
 
   &::before {
     content: "";
@@ -96,3 +101,4 @@ export const RowPoster = styled.div`
     display: none;
   }
 `;
+export const MovieModal = styled.div``;
