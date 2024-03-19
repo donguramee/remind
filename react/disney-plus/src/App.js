@@ -1,32 +1,34 @@
-// import Bannerjs from "./components/Bannerjs/Bannerjs";
-import Nav from "./components/Nav/Nav";
-import Banner from "./components/Banner/Banner";
-import Category from "./components/Category/Category";
-import Row from "./components/Row/Row";
-import { Container } from "./App.style";
+import { Outlet, Routes, Route } from "react-router-dom";
+
 import "./App.css";
+import Nav from "./components/Nav/Nav";
 import requests from "./api/request";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import MainPage from "./pages/MainPage/MainPage";
+import DetailPage from "./pages/DetailPage/DetailPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
+
+const Layout = () => {
+  return (
+    <div>
+      <Nav />
+      <Outlet />
+    </div>
+  );
+};
 
 function App() {
   return (
-    <Container>
-      <Nav />
-      {/* <Bannerjs /> */}
-      <Banner />
-      <Category />
-      <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending} />
-      <Row title="Top Rated" id="TR" fetchUrl={requests.fetchTopRated} />
-      <Row
-        title="Action movies"
-        id="AM"
-        fetchUrl={requests.fetchActionMovies}
-      />
-      <Row
-        title="Comedy movies"
-        id="CM"
-        fetchUrl={requests.fetchComedyMovies}
-      />
-    </Container>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<LoginPage />} />
+          <Route path="main" element={<MainPage />} />
+          <Route path=":movieId" element={<DetailPage />} />
+          <Route path="search" element={<SearchPage />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

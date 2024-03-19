@@ -12,14 +12,13 @@ import {
   ModalOverview,
   ModalOverviewTxt,
 } from "./MovieModal.style";
-import "./MovieModal.css";
 
 const MovieModal = ({
   backdrop_path,
   title,
   overview,
   name,
-  release_date, // 변수명 수정
+  release_date,
   first_air_date,
   vote_average,
   setModalOpen,

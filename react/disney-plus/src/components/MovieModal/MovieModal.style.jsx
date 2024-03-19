@@ -1,4 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 export const Presentation = styled.div`
   z-index: 1200;
@@ -10,6 +22,7 @@ export const WrapperModal = styled.div`
   background-color: rgb(0 0 0 /71%);
   display: flex;
   justify-content: center;
+  padding: 2rem 0;
 `;
 export const Modal = styled.div`
   position: relative;
@@ -20,17 +33,18 @@ export const Modal = styled.div`
   overflow: hidden;
   border-radius: 8px;
   transition: all 400ms ease-in-out 2s;
-  animation: fadeIn 400ms;
+  animation: ${fadeIn} 400ms;
 
-  @keyframes fadeIn 
+  @keyframes fadeIn {
     from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
+      opacity: 0;
+      transform: scale(0.5);
+    }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 `;
 export const CloseButton = styled.span`
@@ -40,6 +54,7 @@ export const CloseButton = styled.span`
   cursor: pointer;
   z-index: 1000;
   color: white;
+  font-weight: 600;
 `;
 export const ModalPosterImage = styled.img`
   width: 100%;
