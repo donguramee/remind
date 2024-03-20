@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavWrapper, Logo } from "./Nav.style";
+import { useLocation, useNavigate } from "react-router-dom";
+import { NavWrapper, Logo, Input, Login } from "./Nav.style";
 
 const Nav = () => {
   const [show, setShow] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -17,6 +21,11 @@ const Nav = () => {
     };
   }, []);
 
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
+  };
+
   return (
     <NavWrapper show={show}>
       <Logo>
@@ -26,6 +35,16 @@ const Nav = () => {
           onClick={() => (window.location.href = "/")}
         />
       </Logo>
+      {pathname === "/" ? (
+        <Login>Login</Login>
+      ) : (
+        <Input
+          value={searchValue}
+          onChange={handleChange}
+          type="text"
+          placeholder={"검색해주세요."}
+        />
+      )}
     </NavWrapper>
   );
 };
