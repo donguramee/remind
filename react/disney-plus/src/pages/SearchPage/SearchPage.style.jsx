@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const SearchContainer = styled.section`
   height: 100vh;
   background-color: black;
+  width: 100%;
+  text-align: center;
+  padding: 5rem 0;
 `;
 export const Movie = styled.div`
   flex: 1 1 auto;
@@ -15,7 +18,7 @@ export const MoviePoster = styled.div`
   transition: transform 0.3s;
   -webkit-transition: transform 0.3s;
   &:hover {
-    transform: scale(1.25);
+    transform: scale(1.15);
   }
 `;
 export const MovieImage = styled.img`
@@ -31,17 +34,5 @@ export const NoResults = styled.section`
   height: 100%;
   padding: 8rem;
 `;
-export const NoResultsTxt = styled.div`
-  background-color: black;
-  width: 100%;
-  text-align: center;
-  padding: 5rem 0;
-`;
-export const NoData = styled.p`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  color: #c5c5c5;
-  height: 100%;
-  padding: 8rem;
-`;
+export const NoResultsTxt = styled.div``;
+export const NoData = styled.p``;
