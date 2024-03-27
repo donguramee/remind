@@ -6,7 +6,7 @@ import { Title, Contents, Container, Wrap, CustomSlider } from "./Row.style";
 //import swiper module
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+//테스트
 //import swiper css
 import "swiper/css";
 import "swiper/css/navigation";
