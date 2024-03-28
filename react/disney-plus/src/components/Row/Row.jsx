@@ -53,22 +53,22 @@ const Row = ({ title, id, fetchUrl }) => {
               slidesPerGroup: 5,
             },
             625: {
-              slidesPerView: 4, //한번에 보이는 슬라이드 개수
-              slidesPerGroup: 4,
+              slidesPerView: 1, //한번에 보이는 슬라이드 개수
+              slidesPerGroup: 1,
             },
             0: {
-              slidesPerView: 3, //한번에 보이는 슬라이드 개수
-              slidesPerGroup: 3,
+              slidesPerView: 1, //한번에 보이는 슬라이드 개수
+              slidesPerGroup: 1,
             },
           }}
         >
           <Contents id={id}>
             {movies.map((movie) => (
-              <SwiperSlide>
+              <SwiperSlide key={movie.id}>
                 <Wrap>
                   <img
                     key={movie.id}
-                    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     onClick={() => handleClick(movie)}
                   />
                 </Wrap>
